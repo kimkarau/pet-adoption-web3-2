@@ -1,6 +1,8 @@
 {
-  "scripts" : {
-    "deploy-script": "node scripts/sample-script.js"
+  "scripts": {
+    "deploy": "npx hardhat run scripts/deploy-script.js",
+    "test": "npx hardhat test",
+    "compile": "npx hardhat compile"
   },
   "name": "hardhat-project",
   "devDependencies": {
@@ -10,5 +12,8 @@
     "ethereum-waffle": "^3.4.4",
     "ethers": "^5.6.5",
     "hardhat": "^2.9.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.0.0"
   }
 }

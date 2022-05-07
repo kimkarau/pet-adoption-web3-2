@@ -1,13 +1,13 @@
-const hre = require("hardhat");
+const { ethers } = require("hardhat");
 
 async function main() {
   // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Adoption");
-  const greeter = await Greeter.deploy();
+  const Adoption = await ethers.getContractFactory("Adoption");
+  const adoption = await Adoption.deploy();
 
-  await greeter.deployed();
+  await adoption.deployed();
 
-  console.log("Greeter deployed to:", greeter.address);
+  console.log("Adoption Contract deployed to:", adoption.address);
 }
 
 // We recommend this pattern to be able to use async/await everywhere
