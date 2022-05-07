@@ -2,38 +2,22 @@
 pragma solidity ^0.8.0;
 import "hardhat/console.sol";
 
-// contract Greeter {
-//     string private greeting;
-
-//     constructor(string memory _greeting) {
-//         console.log("Deploying a Greeter with greeting:", _greeting);
-//         greeting = _greeting;
-//     }
-
-//     function greet() public view returns (string memory) {
-//         return greeting;
-//     }
-
-//     function setGreeting(string memory _greeting) public {
-//         console.log("Changing greeting from '%s' to '%s'", greeting, _greeting);
-//         greeting = _greeting;
-//     }
-// }
-
 contract Adoption {
     address[16] public adopters;
 
+    event PetAssigned(address indexed petOwner, uint32 petId);
+
     // adopting a pet
-    function adopt(uint petId) public returns (uint) {
-      require(petId >= 0 && petId <= 15);
+    function adopt(uint32 petId) public {
+      require(petId >= 0 && petId <= 15, "Pet does not exist");
 
       adopters[petId] = msg.sender;
-
-      return petId;
+      emit PetAssigned(msg.sender, petId);
     }
 
     // Retrieving the adopters
     function getAdopters() public view returns (address[16] memory) {
-      return adopters[0];
+      // address[16] memory _adopters = adopters;
+      return adopters;
     }
 }

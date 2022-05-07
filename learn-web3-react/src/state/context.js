@@ -43,7 +43,7 @@ const createEthContractInstance = () => {
     try {
         const provider = new providers.Web3Provider(ethereum)
         const signer = provider.getSigner()
-        const contractAddress = '0x5FbDB2315678afecb367f032d93F642f64180aa3'
+        const contractAddress = '0x13A07Fde7cd573bBaF462d3C30813D76f8b23F6B'
 
         return new ethers.Contract(contractAddress, abi, signer)
     } catch (e) {
