@@ -1,16 +1,33 @@
-node_modules
-.env
-.fleek.json
-.github/workflows/deploy.yml
-build
-coverage
-coverage.json
-typechain
-
 #Hardhat files
 cache
 artifacts
 
 hardhat/node_modules
 learn-web3-react/node_modules
+
+#learn-web3-react files
+node_modules
+.env
+
+.fleek.json
+.github/workflows/deploy.yml
+
+build
+!learn-web3-react/
+learn-web3-react/*
+!learn-web3-react/src/
+learn-web3-react/src/*
+!learn-web3-react/src/artifacts/
+learn-web3-react/src/artifacts/*
+!learn-web3-react/src/artifacts/contracts/
+learn-web3-react/src/artifacts/contracts/*
+learn-web3-react/src/artifacts/contracts/Adoption.sol/*
+!learn-web3-react/src/artifacts/contracts/Adoption.sol/
+!learn-web3-react/src/artifacts/contracts/Adoption.sol/Adoption.json
+
+coverage
+coverage.json
+typechain
+
+
 
