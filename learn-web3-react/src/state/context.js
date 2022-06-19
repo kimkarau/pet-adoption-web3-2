@@ -2,7 +2,11 @@ import React, {useEffect, useReducer} from "react";
 import Web3 from "web3";
 import {ethers, providers} from "ethers";
 
-const {abi} = require('../contracts/adoptionAbi.json')
+const {abi} = require('../artifacts/contracts/Adoption.sol/Adoption.json')
+
+if (!abi) {
+    throw new Error("Adoptiom.json ABI file missing. Run npx hardhat run contracts/deploy-contract-script.js")
+}
 
 export const initialState = {
     isModalOpen: false,
@@ -43,7 +47,7 @@ const createEthContractInstance = () => {
     try {
         const provider = new providers.Web3Provider(ethereum)
         const signer = provider.getSigner()
-        const contractAddress = '0x13A07Fde7cd573bBaF462d3C30813D76f8b23F6B'
+        const contractAddress = process.env.REACT_APP_ADOPTION_CONTRACT_ADDRESS
 
         return new ethers.Contract(contractAddress, abi, signer)
     } catch (e) {
@@ -142,7 +146,8 @@ export const AppProvider = ({children}) => {
 
             const data = await instance.getAdopters()
 
-            console.log(data)
+            //console.log(data)
+            return data
 
         } catch (e) {
             console.log("RETRIEVING:", e)
