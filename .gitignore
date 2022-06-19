@@ -1,5 +1,8 @@
 node_modules
 .env
+.fleek.json
+.github/workflows/deploy.yml
+build
 coverage
 coverage.json
 typechain

@@ -146,7 +146,7 @@ export const AppProvider = ({children}) => {
 
             const data = await instance.getAdopters()
 
-            //console.log(data)
+            console.log(data)
             return data
 
         } catch (e) {
